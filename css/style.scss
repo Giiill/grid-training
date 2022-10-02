@@ -1,0 +1,252 @@
+@import "null_style.scss";
+.wrapper {
+    display: grid;
+    background-color: grey;
+    
+    grid-template-areas: "header" "main" "footer";
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(100px, auto) 1fr minmax(70px, auto);
+
+}
+.header {
+align-items: center;
+grid-area: header;
+display: grid;
+background-color: blanchedalmond;
+grid-template: 100px / 1fr minmax(auto, 300px) minmax(auto, 1100px) 1fr;
+}
+.header__logo {
+    background-color: black;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    grid-column: 2 / 3;
+}
+.header__menu {
+   
+    grid-column: 3 / 4;
+}
+.header__list {
+    display: grid;
+    grid-auto-flow: column; // выстраиваем дочерние грид элементы в ряд
+    justify-items: start; // выстраиваем дочерние грид элементы к концу блока
+    padding-right: 25px;
+    
+}
+.header__link {
+    font-size: 18px;
+    color: rgb(0, 0, 0);
+    
+}
+.main {
+
+
+    
+}
+@media (min-width: 992px) { // указали чтоб сайдбар слева был только при мобилке
+    .main {
+        grid-area: main;
+        display: grid;
+        grid-template: 1fr  / 1fr minmax(auto, 300px) minmax(auto, 1100px) 1fr; // ограничивающий контейнер при помощи fr по бокам в колонках
+    }
+}
+
+.sidebar {
+    background-color: rgb(255, 235, 204);
+   
+    margin-top: 30px;
+    grid-column: 2 / 3;
+    
+}
+
+
+.sidebar__menu {
+   position: relative;
+   padding: 0px 0px 20% 0px;
+}
+.sidebar__list {
+    padding-top: 100px;
+    position: relative;
+    display: grid;
+    grid-auto-flow: row;
+    
+}
+.sidebar__list li{
+    margin: 0px auto;
+    padding: 15px 0px;
+    
+}
+.sidebar__link {
+    color: rgb(0, 0, 0);
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 2px;
+    font-weight: 900;
+    
+    &:hover {
+       
+        border-bottom: 1px solid rgb(0, 0, 0);
+    }
+}
+.content {
+    
+
+    
+}
+
+.content__block {
+    margin-top: 30px;
+    grid-column: 3 / 4;
+    display: grid;
+    padding-left: 30px;
+    padding-right: 30px;
+    display: grid;
+    grid-row: 1fr 1fr 1fr;
+    gap: 50px;
+}
+.gallery {
+    grid-row: 1 / 2;
+}
+.gallery__items {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+.gallery__item {
+   position: relative;
+   padding: 0px 0px 85% 0px; // адаптация изображения
+   
+   
+   
+
+}
+.gallery__item img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition-duration: 1s;
+    
+    border-radius: 10px;
+    &:hover {
+        width: 110%;
+        height: 110%;
+        z-index: 1;
+        transition-duration: 1s;
+        
+        
+       }
+}
+
+@media (min-width: 798px) {
+    .gallery-big {
+        grid-column: span 2;
+        grid-row: span 2;
+    }
+}
+.product__title {
+    grid-row: 2 / 3;
+}
+.product-title-1 {
+    color: #fff;
+    font-size: 20px;
+    letter-spacing: 2px;
+    line-height: 35px;
+}
+.product-title-2 {
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 36px;
+    font-weight: 600;
+    text-align: center;
+    padding-top: 50px;
+}
+.product {
+    grid-row: 3 / 4;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-auto-flow: row;
+    gap: 30px;
+}
+.product__card {
+}
+.product__img {
+    position: relative;
+    padding: 0px 0px 85% 0px;
+}
+.product__img img{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition-duration: 1s;
+    &:hover {
+        width: 120%;
+        height: 120%;
+        z-index: 1;
+        transition-duration: 1s;
+        transition-delay: 1s
+        
+       }
+}
+.product__name {
+    font-size: 24px;
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+    padding-top: 20px;
+}
+.product__about {
+    font-size: 18px;
+    color: #fff;
+    
+    padding-top: 15px;
+}
+.product__botton {
+    background-color: rgb(211, 126, 77);
+    font-size: 24px;
+    text-transform: uppercase;
+    color: #fff;
+    display: grid;
+    margin: 0 auto;
+    margin-top: 20px;
+    border: 1px solid #000;
+    border-radius: 5%;
+    width: 50%;
+   transition-duration: 0.2s;
+    &:hover{
+        box-shadow: -3px 5px 5px 0px rgb(255, 235, 204),
+        5px -5px 15px -5px rgb(255, 235, 204),
+        2px 4px 8px 5px rgb(255, 235, 204),
+        0px 0px 16px 5px rgb(255, 235, 204);
+        transform: scale(1.2);
+        ;
+        
+    }
+    
+
+}
+.footer {
+    margin-top: 20px;
+    color: #fff;
+    grid-area: footer;
+    display: grid;
+    align-items: center;
+    background-color: rgb(80, 43, 114);
+    grid-template: 1fr / 1fr minmax(auto, 500px) minmax(auto, 900px) 1fr;
+}
+.footer__copy {
+    grid-column: 2 / 3;
+}
+.footer__text {
+    
+    display: grid;
+    justify-items: end;
+    grid-column: 3 / 4;
+}
+
